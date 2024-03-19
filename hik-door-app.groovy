@@ -1,3 +1,11 @@
+/** Hikvision with status to Hubitat is inspired on matthewpetro project, 
+  * which I modded to deliver HTTP POST command on ISAPI from Hikvision doorbells 
+  *
+  * The app needs the IP from intercom and its password to give HTTP POST command. 
+  * To deliver lock/unlock state, you can select a Contact Sensor. If you don't need this status, use the lighter drive:
+  * https://github.com/VCTGomes/Hikvision-Door-Control-to-Hubitat
+  */
+
 definition(
         name: 'Hikvision with Status',
         namespace: 'vctgomes',
