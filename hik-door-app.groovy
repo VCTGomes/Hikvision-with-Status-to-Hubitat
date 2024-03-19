@@ -52,9 +52,9 @@ def lockChangeHandler(event) {
     logDebug "lockChangeHandler() called: ${event.name} ${event.value}"
     def actualLockState = actualLockState()
     logDebug "actualLockState: ${actualLockState}"
-    if (event.value == 'unlocked' && actualLockState == 'locked') {
+    if (event.value == 'unlocking' && actualLockState == 'unlocked') {
         activateLock()
-    } else if (event.value == 'locked' && actualLockState == 'unlocked') {
+    } else if (event.value == 'locking' && actualLockState == 'locked') {
         disableLock()
     }
 }
