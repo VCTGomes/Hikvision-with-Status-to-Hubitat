@@ -3,7 +3,7 @@ metadata {
             name: 'Hikvision Locker',
             namespace: 'vctgomes',
             author: 'Vitor Gomes',
-            importUrl: 'https://raw.githubusercontent.com/matthewpetro/hubitat-projects/main/garage-door/garage-door-device.groovy'
+            importUrl: 'https://raw.githubusercontent.com/VCTGomes/Hikvision-with-Status-to-Hubitat/main/hik-locker.groovy'
     ) {
         capability 'Lock'
     }
