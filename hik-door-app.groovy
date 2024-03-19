@@ -4,7 +4,7 @@ definition(
         author: 'Vitor Gomes',
         description: 'Combine a contact sensor with your Hikvision Doorbell to unlock your door',
         category: 'Convenience',
-        importUrl: 'https://raw.githubusercontent.com/matthewpetro/hubitat-projects/main/garage-door/garage-door-app.groovy',
+        importUrl: 'https://raw.githubusercontent.com/VCTGomes/Hikvision-with-Status-to-Hubitat/main/hik-door-app.groovy',
         iconUrl: '',
         iconX2Url: ''
 )
