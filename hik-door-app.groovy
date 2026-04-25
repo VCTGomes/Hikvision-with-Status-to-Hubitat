@@ -62,9 +62,16 @@ def lockChangeHandler(event) {
     logDebug "actualLockState: ${actualLockState}"
     if (event.value == 'unlocking' && actualLockState == 'unlocked') {
         activateLock()
+        runIn(3, 'resetToLocked')
     } else if (event.value == 'locking' && actualLockState == 'locked') {
         disableLock()
     }
+}
+
+def resetToLocked() {
+    logDebug 'resetToLocked()'
+    def lockDevice = getChildDevice(state.deviceNetworkId)
+    lockDevice.lock()
 }
 
 private syncLockState() {
@@ -105,7 +112,7 @@ private activateLock() {
 private disableLock() {
     logDebug 'disableLock()'
     sendCommand("open")
-} 
+}
 
 def closedSensorHandler(event) {
     logDebug "closedSensorHandler() called: ${event.name} ${event.value}"
@@ -118,8 +125,6 @@ def closedSensorHandler(event) {
         lockDevice.lockChangeHandler('locked')
     }
 }
-
-// HTTP POST on Hikvision Doorbell
 
 def sendCommand(String cmd) {
     def headers = [
@@ -139,16 +144,14 @@ def sendCommand(String cmd) {
             if (response.status == 200) {
                 log.debug "Command sent"
             } else {
-                log.error "Command faild: ${response.status}"
+                log.error "Command failed: ${response.status}"
             }
         }
     } catch (e) {
-        log.error "Fail to sent command: ${e}"
+        log.error "Fail to send command: ${e}"
     }
 }
-
 
 private void logDebug(message) {
     if (debug) log.debug message
 }
-

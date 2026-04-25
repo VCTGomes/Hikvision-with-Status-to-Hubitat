@@ -44,12 +44,8 @@ def unlock() {
 def lockChangeHandler(newValue) {
     logDebug "lockChangeHandler() called: ${newValue}"
     sendEvent(name: 'lock', value: newValue)
-    if (newValue == 'locked') {
-    } else if (newValue == 'unlocked') {
-    }
 }
 
 private void logDebug(message) {
     if (debug) log.debug message
 }
-
